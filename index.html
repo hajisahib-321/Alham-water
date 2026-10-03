@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0A7EA4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="الهام">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>آب معدنی الهام — مدیریت فروش و توزیع</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F6F8;--surface:#FFFFFF;--ink:#0F2F3E;--muted:#587383;--line:#DAE5EA;--brand:#0A7EA4;--on-brand:#FFFFFF;--brand-soft:#E0F0F6;--warn:#A25A09;--warn-soft:#FBEDD7;--bad:#B3342A;--bad-soft:#FBE4E1;--good:#1A7F5B;--good-soft:#D9F1E7;--shadow:0 8px 30px rgba(15,47,62,.12);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1920;--surface:#122732;--ink:#E5EFF3;--muted:#8DA6B3;--line:#21394680;--brand:#3DB7DC;--on-brand:#04212B;--brand-soft:#133545;--warn:#E5A653;--warn-soft:#3A2D17;--bad:#F27D70;--bad-soft:#3B201D;--good:#52C99A;--good-soft:#143629;--shadow:0 8px 30px rgba(0,0,0,.45)}}
+:root[data-theme="dark"]{--bg:#0B1920;--surface:#122732;--ink:#E5EFF3;--muted:#8DA6B3;--line:#21394680;--brand:#3DB7DC;--on-brand:#04212B;--brand-soft:#133545;--warn:#E5A653;--warn-soft:#3A2D17;--bad:#F27D70;--bad-soft:#3B201D;--good:#52C99A;--good-soft:#143629;--shadow:0 8px 30px rgba(0,0,0,.45)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Vazirmatn',Tahoma,'Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.7}
+body.noscroll{overflow:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+h1,h2,h3,p{margin:0}
+bdi.n{unicode-bidi:isolate;direction:ltr;font-variant-numeric:tabular-nums}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:900px;margin:0 auto;padding:10px 14px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand b{display:block;font-size:1.05rem;line-height:1.3}
+.brand small{display:block;color:var(--muted);font-size:.78rem;line-height:1.3}
+.icon{background:none;border:0;padding:8px;border-radius:10px;color:var(--muted);display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:40px}
+.icon:hover{background:var(--brand-soft);color:var(--brand)}
+.icon.bad:hover{background:var(--bad-soft);color:var(--bad)}
+nav.tabs{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:30}
+nav.tabs button{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:8px 2px 6px;font-size:.76rem;color:var(--muted);background:none;border:0;border-top:3px solid transparent}
+nav.tabs button.on{color:var(--brand);border-top-color:var(--brand);font-weight:700}
+@media (min-width:900px){nav.tabs{position:static;max-width:900px;margin:0 auto;border:0;padding:0 8px}nav.tabs button{flex-direction:row;justify-content:center;gap:8px;font-size:.95rem;padding:10px 6px;border-top:0;border-bottom:3px solid transparent}nav.tabs button.on{border-bottom-color:var(--brand)}}
+.wrap{max-width:900px;margin:0 auto;padding:14px 14px 110px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:14px}
+.card.flat{padding:0;overflow:hidden}
+h2.sec{font-size:1.08rem;margin:18px 2px 10px;display:flex;align-items:center;gap:8px}
+.count{background:var(--brand);color:var(--on-brand);border-radius:99px;font-size:.8rem;padding:0 9px;line-height:1.6}
+.hello{margin:4px 2px 12px}
+.hello h1{font-size:1.3rem}
+.hello p{color:var(--muted);font-size:.92rem}
+.stats{display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.stats>div{padding:12px 14px;border-bottom:1px solid var(--line)}
+.stats>div:nth-child(even){border-inline-start:1px solid var(--line)}
+.stats>div:nth-last-child(-n+2){border-bottom:0}
+.stats span{display:block;color:var(--muted);font-size:.82rem}
+.stats b{font-size:1.25rem}
+@media (min-width:700px){.stats{grid-template-columns:repeat(4,1fr)}.stats>div{border-bottom:0;border-inline-start:1px solid var(--line)!important}.stats>div:first-child{border-inline-start:0!important}}
+.rem{background:var(--surface);border:1px solid var(--line);border-inline-start:6px solid var(--brand);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.rem.late{border-inline-start-color:var(--warn)}
+.rem.today{border-inline-start-color:var(--brand)}
+.rem h3{font-size:1.05rem}
+.rem .addr{color:var(--muted);font-size:.9rem}
+.rem .meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.rem .act{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:1px 10px;border-radius:99px;font-size:.82rem;background:var(--brand-soft);color:var(--brand);white-space:nowrap}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.good{background:var(--good-soft);color:var(--good)}
+.chip.mute{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;border-radius:10px;min-height:42px;text-decoration:none;font-size:.95rem}
+.btn:hover{border-color:var(--brand)}
+.btn.p{background:var(--brand);color:var(--on-brand);border-color:var(--brand);font-weight:700}
+.btn.d{color:var(--bad)}
+.btn.sm{min-height:36px;padding:4px 11px;font-size:.88rem}
+.btn.wide{width:100%}
+.link{background:none;border:0;color:var(--brand);padding:2px 0;text-decoration:underline;font-size:.92rem}
+.seg{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;margin:0 -2px;scrollbar-width:none}
+.seg::-webkit-scrollbar{display:none}
+.seg button{white-space:nowrap;border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:99px;font-size:.92rem;min-height:38px}
+.seg button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.row{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row.click{cursor:pointer}
+.row.click:hover{background:var(--brand-soft)}
+.grow{flex:1;min-width:0}
+.grow b{display:block;overflow:hidden;text-overflow:ellipsis}
+.sub{color:var(--muted);font-size:.85rem;line-height:1.5}
+.amt{text-align:end;white-space:nowrap}
+.acts{display:flex;gap:0}
+.empty{padding:26px 16px;text-align:center;color:var(--muted)}
+.note{border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:.92rem}
+.note.warn{background:var(--warn-soft);color:var(--warn)}
+.note.bad{background:var(--bad-soft);color:var(--bad)}
+.note.info{background:var(--brand-soft);color:var(--brand)}
+.daynav{display:flex;align-items:center;gap:6px;margin-bottom:12px}
+.daynav .day{flex:1;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px;min-height:44px}
+.daynav .day small{display:block;color:var(--muted);font-size:.78rem;line-height:1.2}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.two .btn{width:100%}
+label{display:block;font-size:.88rem;color:var(--muted);margin:12px 0 4px}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);min-height:44px}
+textarea{min-height:90px;resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dfield{display:grid;grid-template-columns:.8fr 1.3fr 1fr;gap:6px}
+.dfield select{padding-inline:6px}
+.step{display:grid;grid-template-columns:44px 1fr 44px;gap:6px}
+.step button{border:1px solid var(--line);background:var(--surface);border-radius:10px;font-size:1.3rem;min-height:44px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chips button{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:3px 12px;font-size:.88rem;min-height:34px}
+.chips button.on{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+.sum{background:var(--bg);border-radius:12px;padding:10px 12px;margin-top:14px}
+.sum div{display:flex;justify-content:space-between;gap:10px;padding:2px 0}
+.sum .big{font-weight:700;font-size:1.05rem}
+.hint{color:var(--muted);font-size:.85rem;margin-top:6px}
+.ov{position:fixed;inset:0;background:rgba(6,22,30,.55);display:flex;align-items:flex-end;justify-content:center;z-index:60}
+.sheet{background:var(--surface);width:100%;max-width:560px;max-height:93vh;overflow:auto;border-radius:20px 20px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom,0px));box-shadow:var(--shadow);animation:up .22s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.sheet{animation:none}}
+@media (min-width:700px){.ov{align-items:center}.sheet{border-radius:20px}}
+.mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.mh h2{font-size:1.15rem}
+.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:99px;z-index:90;font-size:.92rem;max-width:90%}
+.bars{height:7px;background:var(--brand-soft);border-radius:4px;margin-top:5px;overflow:hidden}
+.bars i{display:block;height:100%;background:var(--brand);border-radius:4px}
+.rank{width:30px;height:30px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.88rem;flex:none}
+.stmt{padding:4px 14px 10px}
+.stmt .ln{display:flex;align-items:baseline;gap:8px;padding:7px 0}
+.stmt .ln span.l{flex:none}
+.stmt .ln i{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+.stmt .ln.tot{border-top:1px solid var(--line);margin-top:4px;padding-top:10px;font-weight:700}
+.stmt .ln.tot.final{font-size:1.15rem}
+.pos{color:var(--good)}.neg{color:var(--bad)}
+.stack{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--line);margin:8px 0}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:6px}
+.c-daily{background:var(--warn)}.c-emp{background:var(--brand)}.c-tech{background:var(--bad)}.c-profit{background:var(--good)}
+.chart text{fill:var(--muted);font-size:11px;font-family:inherit}
+.logo-lg{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:10px 0}
+.receipt{padding:6px 2px}
+.receipt .rh{text-align:center;border-bottom:1px dashed var(--line);padding-bottom:10px;margin-bottom:10px}
+.receipt .rl{display:flex;justify-content:space-between;padding:3px 0}
+.receipt .rs{border-top:1px dashed var(--line);margin-top:8px;padding-top:8px}
+pre.txt{white-space:pre-wrap;word-break:break-all;direction:ltr;text-align:left;background:var(--bg);padding:10px;border-radius:10px;max-height:220px;overflow:auto;font-size:.8rem}
+@media print{body *{visibility:hidden}#receipt,#receipt *{visibility:visible}#receipt{position:absolute;inset:0;padding:16px;background:#fff;color:#000}.sheet{box-shadow:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="modal"></div>
+<div id="toast"></div>
+<input type="file" id="impfile" accept=".json,application/json" hidden>
+<script>
+(function(){
+'use strict';
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num=v=>{if(typeof v==='number')return isFinite(v)?v:0;const s=String(v==null?'':v).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[,٬،\s]/g,'').replace('٫','.');const n=parseFloat(s);return isFinite(n)?n:0;};
+const money=n=>{n=Math.round(num(n)*100)/100;return n.toLocaleString('en-US',{maximumFractionDigits:2});};
+const M$=n=>'<bdi class="n">'+money(n)+'</bdi>';
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const sum=(a,f)=>a.reduce((t,x)=>t+(+f(x)||0),0);
+const pad=n=>String(n).padStart(2,'0');
+const iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const parse=s=>{const p=s.split('-').map(Number);return new Date(p[0],p[1]-1,p[2]);};
+const today=()=>iso(new Date());
+const addDays=(s,n)=>{const d=parse(s);d.setDate(d.getDate()+n);return iso(d);};
+const diff=(a,b)=>Math.round((parse(a)-parse(b))/864e5);
+const MONTHS=['حمل','ثور','جوزا','سرطان','اسد','سنبله','میزان','عقرب','قوس','جدی','دلو','حوت'];
+const GM=['جنوری','فبروری','مارچ','اپریل','می','جون','جولای','اگست','سپتمبر','اکتوبر','نومبر','دسمبر'];
+const WD=['یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه','شنبه'];
+function g2j(gy,gm,gd){const g=[0,31,59,90,120,151,181,212,243,273,304,334];let jy;if(gy>1600){jy=979;gy-=1600}else{jy=0;gy-=621}const gy2=gm>2?gy+1:gy;let days=365*gy+Math.floor((gy2+3)/4)-Math.floor((gy2+99)/100)+Math.floor((gy2+399)/400)-80+gd+g[gm-1];jy+=33*Math.floor(days/12053);days%=12053;jy+=4*Math.floor(days/1461);days%=1461;if(days>365){jy+=Math.floor((days-1)/365);days=(days-1)%365}const jm=days<186?1+Math.floor(days/31):7+Math.floor((days-186)/30);const jd=1+(days<186?days%31:(days-186)%30);return[jy,jm,jd]}
+function j2g(jy,jm,jd){let gy;if(jy>979){gy=1600;jy-=979}else{gy=621}let days=365*jy+Math.floor(jy/33)*8+Math.floor(((jy%33)+3)/4)+78+jd+(jm<7?(jm-1)*31:((jm-7)*30)+186);gy+=400*Math.floor(days/146097);days%=146097;if(days>36524){days--;gy+=100*Math.floor(days/36524);days%=36524;if(days>=365)days++}gy+=4*Math.floor(days/1461);days%=1461;if(days>365){gy+=Math.floor((days-1)/365);days=(days-1)%365}let gd=days+1;const sal=[0,31,((gy%4===0&&gy%100!==0)||gy%400===0)?29:28,31,30,31,30,31,31,30,31,30,31];let gm;for(gm=0;gm<13;gm++){const v=sal[gm];if(gd<=v)break;gd-=v}return[gy,gm,gd]}
+const toJ=s=>{const d=parse(s);return g2j(d.getFullYear(),d.getMonth()+1,d.getDate());};
+const fromJ=(y,m,d)=>{const g=j2g(y,m,d);return g[0]+'-'+pad(g[1])+'-'+pad(g[2]);};
+const shamsi=()=>S.settings.cal!=='miladi';
+function fmtDate(s,short){if(!s)return '—';const p=s.split('-').map(Number);if(!shamsi())return p[2]+' '+GM[p[1]-1]+(short?'':' '+p[0]);const j=g2j(p[0],p[1],p[2]);return j[2]+' '+MONTHS[j[1]-1]+(short?'':' '+j[0]);}
+const fmtLong=s=>WD[parse(s).getDay()]+'، '+fmtDate(s);
+function ago(s){const n=diff(today(),s);return n===0?'امروز':n===1?'دیروز':n+' روز پیش';}
+function dateField(id,val){
+  if(!shamsi())return '<input type="date" id="'+id+'" value="'+val+'">';
+  const j=toJ(val),cy=toJ(today())[0];let ys='',ds='',ms='';
+  for(let y=Math.min(cy-4,j[0]);y<=Math.max(cy+1,j[0]);y++)ys+='<option value="'+y+'"'+(y===j[0]?' selected':'')+'>'+y+'</option>';
+  for(let d=1;d<=31;d++)ds+='<option value="'+d+'"'+(d===j[2]?' selected':'')+'>'+d+'</option>';
+  MONTHS.forEach((m,i)=>ms+='<option value="'+(i+1)+'"'+(i+1===j[1]?' selected':'')+'>'+m+'</option>');
+  return '<div class="dfield" id="'+id+'"><select class="d" aria-label="روز">'+ds+'</select><select class="m" aria-label="ماه">'+ms+'</select><select class="y" aria-label="سال">'+ys+'</select></div>';
+}
+function getDate(id){
+  const el=document.getElementById(id);if(!el)return today();
+  if(el.tagName==='INPUT')return el.value||today();
+  const y=+el.querySelector('.y').value,m=+el.querySelector('.m').value;let d=+el.querySelector('.d').value;
+  for(;d>=1;d--){const g=fromJ(y,m,d);if(toJ(g)[1]===m)return g;}
+  return fromJ(y,m,1);
+}
+function range(p){
+  const t=today();
+  if(p==='today')return[t,t];
+  if(p==='all')return['0000-01-01','9999-12-31'];
+  if(p==='week'){const off=(parse(t).getDay()+1)%7;const f=addDays(t,-off);return[f,addDays(f,6)];}
+  const sh=shamsi();
+  if(p==='month'||p==='lastmonth'){
+    if(sh){let j=toJ(t),y=j[0],m=j[1];if(p==='lastmonth'){m--;if(m<1){m=12;y--;}}const f=fromJ(y,m,1);const ny=m===12?y+1:y,nm=m===12?1:m+1;return[f,addDays(fromJ(ny,nm,1),-1)];}
+    const d=parse(t);let y=d.getFullYear(),m=d.getMonth();if(p==='lastmonth'){m--;if(m<0){m=11;y--;}}
+    return[iso(new Date(y,m,1)),iso(new Date(y,m+1,0))];
+  }
+  if(p==='year'){if(sh){const y=toJ(t)[0];return[fromJ(y,1,1),addDays(fromJ(y+1,1,1),-1)];}const y=parse(t).getFullYear();return[y+'-01-01',y+'-12-31'];}
+  return[t,t];
+}
+const PERIODS=[['today','امروز'],['week','این هفته'],['month','این ماه'],['lastmonth','ماه گذشته'],['year','امسال'],['all','همه']];
+const inR=(d,r)=>d>=r[0]&&d<=r[1];
+
+/* ---------- icons & logo ---------- */
+const IC={home:'M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6',sale:'M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 8h6M9 12h6',users:'M16 20v-1a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v1M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M20 20v-1a4 4 0 0 0-3-3.8M16 3.2a4 4 0 0 1 0 7.6',wallet:'M3 7h15a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7zM3 7l12-4v4M17 14h.01',chart:'M4 20V10M10 20V4M16 20v-7M22 20H2',set:'M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4',phone:'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z',plus:'M12 5v14M5 12h14',edit:'M4 20h4L19 9l-4-4L4 16v4zM14 6l4 4',trash:'M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3',clock:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2',check:'M5 12l5 5L20 7',x:'M6 6l12 12M18 6L6 18',print:'M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z',chat:'M21 12a8 8 0 0 1-12 7l-5 1 1.5-4.5A8 8 0 1 1 21 12z',down:'M12 4v12M7 11l5 5 5-5M5 20h14',up:'M12 16V4M7 9l5-5 5 5M5 20h14',cr:'M9 5l7 7-7 7',cl:'M15 5l-7 7 7 7',drop:'M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z'};
+const ic=(n,s)=>{s=s||20;return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+IC[n]+'"/></svg>';};
+const logo=s=>'<svg width="'+(s||36)+'" height="'+(s||36)+'" viewBox="0 0 64 64" role="img" aria-label="لوگوی آب معدنی الهام"><path d="M32 3C32 3 12 25 12 40a20 20 0 0 0 40 0C52 25 32 3 32 3Z" fill="var(--brand)"/><path d="M19 41q6.5-5.5 13 0t13 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M22.5 49q5.5-4.5 11 0t8.5 0" fill="none" stroke="#fff" stroke-opacity=".65" stroke-width="3" stroke-linecap="round"/><path d="M23 28q-4 6-3.5 12" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/></svg>';
+
+/* ---------- state ---------- */
+const KEY='elham_water_v1';
+const DEF={company:'آب معدنی الهام',ceo:'حاجی صاحب',group:'گروپ شرکت‌های صداقت محمدی',phone:'',address:'',currency:'افغانی',cc:'93',price:0,cost:0,days:3,inactive:30,cal:'shamsi',theme:'auto',lastBackup:''};
+const ET={daily:{n:'مصرف روزانه',lab:'مورد مصرف',ph:'مثلاً: تیل موتر، چای، کرایه'},emp:{n:'برداشت کارمند',lab:'نام کارمند',ph:'نام کارمند'},tech:{n:'مصرف تخنیکی',lab:'مورد تخنیکی',ph:'مثلاً: تعمیر ماشین، فلتر، کپ'},profit:{n:'برداشت مفاد',lab:'نام برداشت‌کننده',ph:'نام شخص'}};
+let S=null,CC={},storageOK=true,confirmFn=null;
+const UI={view:'home',cTab:'all',q:'',saleDate:today(),finP:'month',topP:'month',expP:'month',expT:'all',inact:30,detail:null};
+const str=v=>String(v==null?'':v);
+const sid=v=>str(v).replace(/[^A-Za-z0-9_-]/g,'')||uid();
+const sdate=v=>/^\d{4}-\d{2}-\d{2}$/.test(str(v))?str(v):today();
+const sdate0=v=>/^\d{4}-\d{2}-\d{2}$/.test(str(v))?str(v):'';
+function normalize(o){
+  o=o&&typeof o==='object'?o:{};
+  const st=Object.assign({},DEF,o.settings&&typeof o.settings==='object'?o.settings:{});
+  ['price','cost','days','inactive'].forEach(k=>st[k]=num(st[k]));st.lastBackup=sdate0(st.lastBackup);if(['shamsi','miladi'].indexOf(st.cal)<0)st.cal='shamsi';if(['auto','light','dark'].indexOf(st.theme)<0)st.theme='auto';
+  const arr=k=>Array.isArray(o[k])?o[k].filter(x=>x&&typeof x==='object'&&x.id):[];
+  return{v:1,settings:st,
+    customers:arr('customers').map(c=>({id:sid(c.id),name:str(c.name),phone:str(c.phone),address:str(c.address),type:TYPES[c.type]?c.type:'home',price:c.price===null||c.price===''||c.price===undefined?null:num(c.price),days:c.days===null||c.days===''||c.days===undefined?null:num(c.days),openDebt:num(c.openDebt),openBottles:num(c.openBottles),note:str(c.note),created:sdate(c.created),snooze:sdate0(c.snooze),mute:!!c.mute})),
+    sales:arr('sales').map(s=>({id:sid(s.id),ts:num(s.ts),cid:sid(s.cid),date:sdate(s.date),qty:num(s.qty),ret:num(s.ret),price:num(s.price),paid:num(s.paid),days:num(s.days),note:str(s.note)})),
+    payments:arr('payments').map(p=>({id:sid(p.id),ts:num(p.ts),cid:sid(p.cid),date:sdate(p.date),amount:num(p.amount),note:str(p.note)})),
+    expenses:arr('expenses').map(e=>({id:sid(e.id),ts:num(e.ts),date:sdate(e.date),type:ET[e.type]?e.type:'daily',name:str(e.name),desc:str(e.desc),amount:num(e.amount)}))};
+}
+function load(){try{const r=localStorage.getItem(KEY);if(r)return normalize(JSON.parse(r));}catch(e){}return normalize({});}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));storageOK=true;}catch(e){storageOK=false;}}
+function compute(){
+  const C={};
+  S.customers.forEach(c=>{C[c.id]={c:c,bottles:c.openBottles||0,bal:c.openDebt||0,last:'',lastQty:0,days:0,qty:0,amt:0,n:0,due:''};});
+  S.sales.slice().sort((a,b)=>a.date===b.date?(a.ts||0)-(b.ts||0):(a.date<b.date?-1:1)).forEach(s=>{
+    const x=C[s.cid];if(!x)return;
+    x.bottles+=s.qty-(s.ret||0);x.bal+=s.qty*s.price-s.paid;
+    if(s.qty>0){x.last=s.date;x.lastQty=s.qty;x.days=s.days;x.qty+=s.qty;x.amt+=s.qty*s.price;x.n++;}
+  });
+  S.payments.forEach(p=>{const x=C[p.cid];if(x)x.bal-=p.amount;});
+  Object.keys(C).forEach(k=>{const x=C[k];x.bal=Math.round(x.bal*100)/100;if(x.last&&x.days>0&&!x.c.mute){x.due=addDays(x.last,x.days);if(x.c.snooze&&x.c.snooze>x.due)x.due=x.c.snooze;}});
+  return C;
+}
+function applyTheme(){const t=S.settings.theme;if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);else document.documentElement.removeAttribute('data-theme');}
+const byName=(a,b)=>a.name.localeCompare(b.name,'fa');
+const custName=id=>CC[id]?CC[id].c.name:'(مشتری حذف شده)';
+const telHref=p=>'tel:'+str(p).replace(/[^\d+]/g,'');
+function waHref(p,text){let d=str(p).replace(/\D/g,'');if(!d)return '#';if(d.indexOf('00')===0)d=d.slice(2);else if(d[0]==='0')d=S.settings.cc+d.slice(1);return 'https://wa.me/'+d+(text?'?text='+encodeURIComponent(text):'');}
+const TYPES={home:'خانگی',shop:'فروشگاه',office:'اداره / دفتر',other:'دیگر'};
+
+/* ---------- shell ---------- */
+function render(keep){
+  const y=window.scrollY;CC=compute();applyTheme();
+  const t=[['home','خانه','home'],['sales','فروش','sale'],['customers','مشتریان','users'],['expenses','مصارف','wallet'],['finance','مالی','chart']];
+  $('#app').innerHTML='<header class="top"><div class="bar"><div class="brand">'+logo(38)+'<div><b>'+esc(S.settings.company)+'</b><small>'+esc(S.settings.group)+'</small></div></div><button class="icon" data-a="go" data-v="settings" aria-label="تنظیمات">'+ic('set',22)+'</button></div>'
+    +'<nav class="tabs">'+t.map(x=>'<button data-a="go" data-v="'+x[0]+'" class="'+(UI.view===x[0]?'on':'')+'">'+ic(x[2],22)+'<span>'+x[1]+'</span></button>').join('')+'</nav></header>'
+    +'<main class="wrap">'+VIEWS[UI.view]()+'</main>';
+  if(keep!==false)window.scrollTo(0,y);
+}
+function toast(m){const t=$('#toast');t.innerHTML='<div class="toast" role="status">'+esc(m)+'</div>';clearTimeout(toast.t);toast.t=setTimeout(()=>t.innerHTML='',2400);}
+function openModal(h){$('#modal').innerHTML='<div class="ov"><div class="sheet" role="dialog" aria-modal="true">'+h+'</div></div>';document.body.classList.add('noscroll');}
+function closeModal(){$('#modal').innerHTML='';document.body.classList.remove('noscroll');}
+const mhead=t=>'<div class="mh"><h2>'+t+'</h2><button class="icon" data-a="mclose" aria-label="بستن">'+ic('x')+'</button></div>';
+function confirmBox(msg,label,fn){confirmFn=fn;openModal(mhead('تأیید')+'<p style="margin:10px 0 18px">'+esc(msg)+'</p><div class="two"><button class="btn" data-a="mclose">انصراف</button><button class="btn p" data-a="confirmYes">'+esc(label||'بلی')+'</button></div>');}
+const chips=(k,cur,opts)=>'<div class="seg">'+opts.map(o=>'<button data-a="set" data-k="'+k+'" data-v="'+o[0]+'" class="'+(String(cur)===String(o[0])?'on':'')+'">'+o[1]+'</button>').join('')+'</div>';
+const empty=m=>'<div class="empty">'+m+'</div>';
+function debtChip(b){return b>0.004?'<span class="chip bad">باقی '+money(b)+'</span>':b<-0.004?'<span class="chip good">پیش‌پرداخت '+money(-b)+'</span>':'<span class="chip good">پرداخت شده</span>';}
+
+/* ---------- views ---------- */
+const VIEWS={home:vHome,sales:vSales,customers:vCustomers,expenses:vExpenses,finance:vFinance,settings:vSettings};
+
+function remCard(x,t){
+  const c=x.c,late=diff(t,x.due);
+  const st=late<=0?'<span class="chip">امروز</span>':'<span class="chip warn">'+late+' روز تأخیر</span>';
+  return '<article class="rem '+(late>0?'late':'today')+'"><div style="display:flex;justify-content:space-between;gap:8px"><div class="grow"><h3>'+esc(c.name)+'</h3><p class="addr">'+esc(c.address||'آدرس ثبت نشده')+'</p></div>'+st+'</div>'
+  +'<div class="meta"><span class="chip mute">نزد مشتری: '+money(x.bottles)+' بوتل</span><span class="chip mute">آخرین خرید: '+ago(x.last)+'</span>'+(x.bal>0.004?'<span class="chip bad">باقی '+money(x.bal)+' '+cur()+'</span>':'')+'</div>'
+  +'<div class="act"><button class="btn p sm" data-a="saleNew" data-id="'+c.id+'">'+ic('check',16)+'ثبت فروش</button>'
+  +(c.phone?'<a class="btn sm" href="'+telHref(c.phone)+'">'+ic('phone',16)+'<span class="ltr">'+esc(c.phone)+'</span></a><a class="btn sm" target="_blank" rel="noopener" href="'+waHref(c.phone)+'" aria-label="واتساپ">'+ic('chat',16)+'</a>':'')
+  +'<button class="btn sm" data-a="snooze" data-id="'+c.id+'">'+ic('clock',16)+'بعداً</button></div></article>';
+}
+const cur=()=>esc(S.settings.currency);
+function vHome(){
+  const t=today(),D=Object.values(CC);
+  const cmp=(a,b)=>a.due<b.due?-1:a.due>b.due?1:byName(a.c,b.c);
+  const due=D.filter(x=>x.due&&x.due<=t).sort(cmp);
+  const soon=D.filter(x=>x.due&&x.due>t&&x.due<=addDays(t,3)).sort(cmp);
+  const ts=S.sales.filter(s=>s.date===t);
+  const q=sum(ts,s=>s.qty),amt=sum(ts,s=>s.qty*s.price),got=sum(ts,s=>s.paid)+sum(S.payments.filter(p=>p.date===t),p=>p.amount);
+  const recv=D.reduce((a,x)=>a+Math.max(0,x.bal),0);
+  let h='';
+  if(!storageOK)h+='<div class="note bad">ذخیره خودکار در این مرورگر کار نمی‌کند. حتماً مرتب بکاپ بگیرید.</div>';
+  const has=S.sales.length+S.expenses.length+S.customers.length>0,lb=S.settings.lastBackup;
+  if(has&&(!lb||diff(t,lb)>=7))h+='<div class="note warn">'+(lb?'آخرین بکاپ '+diff(t,lb)+' روز پیش گرفته شده.':'هنوز از اطلاعات بکاپ نگرفته‌اید.')+' اطلاعات فقط روی همین دستگاه ذخیره می‌شود. <button class="link" data-a="exportJSON">بکاپ بگیرید</button></div>';
+  if(!(S.settings.price>0))h+='<div class="note info">قیمت پیش‌فرض یک بوتل را در <button class="link" data-a="go" data-v="settings">تنظیمات</button> وارد کنید تا هنگام فروش خودکار پر شود.</div>';
+  h+='<div class="hello"><h1>'+fmtLong(t)+'</h1><p>'+esc(S.settings.company)+'</p></div>';
+  h+='<div class="stats"><div><span>بوتل فروخته امروز</span><b>'+M$(q)+'</b></div><div><span>مبلغ فروش امروز</span><b>'+M$(amt)+'</b> <small>'+cur()+'</small></div><div><span>وصول امروز</span><b>'+M$(got)+'</b> <small>'+cur()+'</small></div><div><span>مجموع قرض مشتریان</span><b>'+M$(recv)+'</b> <small>'+cur()+'</small></div></div>';
+  h+='<h2 class="sec">یادآوری امروز <span class="count">'+due.length+'</span></h2>';
+  if(!S.customers.length)h+='<div class="card"><p>برای شروع، اولین مشتری را اضافه کنید. بعد از ثبت اولین فروش، یادآوری‌ها اینجا نمایش داده می‌شوند.</p><div style="margin-top:12px"><button class="btn p" data-a="custNew">'+ic('plus',16)+'مشتری جدید</button></div></div>';
+  else if(!due.length)h+='<div class="card">'+empty('امروز مشتری‌ای برای رساندن آب باقی نمانده است.')+'</div>';
+  else h+=due.map(x=>remCard(x,t)).join('');
+  if(soon.length){h+='<h2 class="sec">در سه روز آینده</h2><div class="card flat">'+soon.map(x=>'<div class="row click" data-a="custOpen" data-id="'+x.c.id+'"><div class="grow"><b>'+esc(x.c.name)+'</b><div class="sub">'+esc(x.c.address)+'</div></div><span class="chip mute">'+fmtDate(x.due,true)+'</span></div>').join('')+'</div>';}
+  return h;
+}
+
+function vSales(){
+  const d=UI.saleDate,t=today();
+  const ss=S.sales.filter(s=>s.date===d).sort((a,b)=>(a.ts||0)-(b.ts||0));
+  const ps=S.payments.filter(p=>p.date===d);
+  const q=sum(ss,s=>s.qty),ret=sum(ss,s=>s.ret),tot=sum(ss,s=>s.qty*s.price),paid=sum(ss,s=>s.paid),pay=sum(ps,p=>p.amount);
+  let h='<div class="daynav"><button class="icon" data-a="dayMove" data-d="-1" aria-label="روز قبل">'+ic('cr',22)+'</button><button class="day" data-a="dayPick" style="font:inherit;color:inherit;cursor:pointer"><b>'+fmtLong(d)+'</b>'+(d===t?'<small>امروز</small>':'<small>'+ago(d)+'</small>')+'</button><button class="icon" data-a="dayMove" data-d="1" aria-label="روز بعد">'+ic('cl',22)+'</button>'+(d!==t?'<button class="btn sm" data-a="dayToday">امروز</button>':'')+'</div>';
+  h+='<div class="two"><button class="btn p" data-a="saleNew" data-date="'+d+'">'+ic('plus',16)+'فروش جدید</button><button class="btn" data-a="payNew" data-date="'+d+'">'+ic('down',16)+'وصول قرض</button></div>';
+  h+='<div class="stats"><div><span>بوتل فروخته</span><b>'+M$(q)+'</b>'+(ret?' <small>('+ret+' خالی برگشت)</small>':'')+'</div><div><span>مبلغ فروش</span><b>'+M$(tot)+'</b></div><div><span>پرداخت همان روز</span><b>'+M$(paid)+'</b></div><div><span>باقی‌داری امروز</span><b class="'+(tot-paid>0.004?'neg':'')+'">'+M$(tot-paid)+'</b></div></div>';
+  h+='<h2 class="sec">فروش‌های این روز <span class="count">'+ss.length+'</span></h2><div class="card flat">';
+  if(!ss.length)h+=empty('برای این روز فروشی ثبت نشده است.');
+  h+=ss.map(s=>{const total=s.qty*s.price,rem=total-s.paid;return '<div class="row"><div class="grow"><b>'+esc(custName(s.cid))+'</b><div class="sub">'+(s.qty>0?money(s.qty)+' بوتل × '+money(s.price):'فقط بوتل خالی')+(s.ret?'، '+money(s.ret)+' خالی برگشت':'')+(s.note?'، '+esc(s.note):'')+'</div></div><div class="amt"><b>'+M$(total)+'</b><div class="sub">'+debtChip(rem)+'</div></div><div class="acts"><button class="icon" data-a="receipt" data-id="'+s.id+'" aria-label="رسید">'+ic('print',18)+'</button><button class="icon" data-a="saleEdit" data-id="'+s.id+'" aria-label="ویرایش">'+ic('edit',18)+'</button><button class="icon bad" data-a="saleDel" data-id="'+s.id+'" aria-label="حذف">'+ic('trash',18)+'</button></div></div>';}).join('');
+  h+='</div>';
+  if(ps.length){h+='<h2 class="sec">وصول قرض این روز <span class="chip good">'+money(pay)+' '+cur()+'</span></h2><div class="card flat">'+ps.map(p=>'<div class="row"><div class="grow"><b>'+esc(custName(p.cid))+'</b><div class="sub">'+esc(p.note||'پرداخت قرض')+'</div></div><div class="amt"><b class="pos">'+M$(p.amount)+'</b></div><div class="acts"><button class="icon" data-a="payEdit" data-id="'+p.id+'" aria-label="ویرایش">'+ic('edit',18)+'</button><button class="icon bad" data-a="payDel" data-id="'+p.id+'" aria-label="حذف">'+ic('trash',18)+'</button></div></div>').join('')+'</div>';}
+  return h;
+}
+
+function custList(){
+  const q=UI.q.trim().toLowerCase();
+  const L=Object.values(CC).filter(x=>!q||(x.c.name+' '+x.c.phone+' '+x.c.address).toLowerCase().indexOf(q)>=0).sort((a,b)=>byName(a.c,b.c));
+  if(!L.length)return empty(S.customers.length?'مشتری‌ای با این مشخصات پیدا نشد.':'هنوز مشتری ثبت نشده است.');
+  return L.map(x=>'<div class="row click" data-a="custOpen" data-id="'+x.c.id+'"><div class="grow"><b>'+esc(x.c.name)+'</b><div class="sub">'+(x.c.phone?'<span class="ltr">'+esc(x.c.phone)+'</span> ':'')+esc(x.c.address)+'</div></div><div class="amt"><div class="sub">'+money(x.bottles)+' بوتل نزد مشتری</div>'+(Math.abs(x.bal)>0.004?debtChip(x.bal):'')+'</div></div>').join('');
+}
+function vCustomers(){
+  const t=today(),D=Object.values(CC);
+  let h='<div class="seg">'+[['all','همه مشتریان'],['top','پرمصرف‌ها'],['inactive','غیرفعال'],['debt','قرضدار']].map(o=>'<button data-a="set" data-k="cTab" data-v="'+o[0]+'" class="'+(UI.cTab===o[0]?'on':'')+'">'+o[1]+'</button>').join('')+'</div>';
+  if(UI.cTab==='all'){
+    h+='<div style="display:flex;gap:8px;margin:4px 0 12px"><input id="cq" placeholder="جستجوی نام، شماره یا آدرس" value="'+esc(UI.q)+'" autocomplete="off"><button class="btn p" data-a="custNew" style="flex:none">'+ic('plus',16)+'جدید</button></div>';
+    const out=sum(D,x=>x.bottles);
+    h+='<div class="hint" style="margin:0 2px 8px">'+D.length+' مشتری، '+money(out)+' بوتل نزد مشتریان</div><div class="card flat" id="clist">'+custList()+'</div>';
+  }else if(UI.cTab==='top'){
+    const r=range(UI.topP),m={};
+    S.sales.forEach(s=>{if(s.qty<=0||!inR(s.date,r)||!CC[s.cid])return;const o=m[s.cid]||(m[s.cid]={qty:0,amt:0,n:0});o.qty+=s.qty;o.amt+=s.qty*s.price;o.n++;});
+    const L=Object.keys(m).map(k=>({c:CC[k].c,o:m[k]})).sort((a,b)=>b.o.qty-a.o.qty||b.o.amt-a.o.amt);
+    const mx=L.length?L[0].o.qty:1,tq=sum(L,x=>x.o.qty),ta=sum(L,x=>x.o.amt);
+    h+=chips('topP',UI.topP,PERIODS);
+    h+='<div class="hint" style="margin:0 2px 8px">'+(UI.topP==='all'?'از ابتدا':fmtDate(r[0],true)+' تا '+fmtDate(r[1],true))+' — '+L.length+' مشتری خریدار، '+money(tq)+' بوتل، '+money(ta)+' '+cur()+'</div><div class="card flat">';
+    if(!L.length)h+=empty('در این دوره خریدی ثبت نشده است.');
+    h+=L.slice(0,50).map((x,i)=>'<div class="row click" data-a="custOpen" data-id="'+x.c.id+'"><span class="rank">'+(i+1)+'</span><div class="grow"><b>'+esc(x.c.name)+'</b><div class="sub">'+x.o.n+' بار خرید، '+money(x.o.amt)+' '+cur()+'</div><div class="bars"><i style="width:'+Math.max(4,x.o.qty/mx*100)+'%"></i></div></div><div class="amt"><b>'+M$(x.o.qty)+'</b><div class="sub">بوتل</div></div></div>').join('');
+    h+='</div>';
+  }else if(UI.cTab==='inactive'){
+    const n=UI.inact;
+    const L=D.filter(x=>!x.last||diff(t,x.last)>=n).sort((a,b)=>(a.last?diff(t,a.last):-1)<(b.last?diff(t,b.last):-1)?1:-1);
+    h+=chips('inact',n,[[7,'۷ روز'],[14,'۱۴ روز'],[30,'۳۰ روز'],[60,'۶۰ روز'],[90,'۹۰ روز']]);
+    h+='<div class="hint" style="margin:0 2px 8px">مشتریانی که '+n+' روز یا بیشتر خرید نکرده‌اند: '+L.length+' نفر. بوتل‌های نزد آنها: '+money(sum(L,x=>x.bottles))+'</div><div class="card flat">';
+    if(!L.length)h+=empty('همه مشتری‌ها در این مدت خرید داشته‌اند.');
+    h+=L.map(x=>'<div class="row click" data-a="custOpen" data-id="'+x.c.id+'"><div class="grow"><b>'+esc(x.c.name)+'</b><div class="sub">'+(x.last?'آخرین خرید: '+fmtDate(x.last)+' ('+ago(x.last)+')':'هنوز خرید نکرده')+'</div></div><div class="amt"><div class="sub">'+money(x.bottles)+' بوتل نزد مشتری</div>'+(x.bal>0.004?debtChip(x.bal):'')+'</div>'+(x.c.phone?'<a class="icon" href="'+telHref(x.c.phone)+'" aria-label="تماس">'+ic('phone',18)+'</a>':'')+'</div>').join('');
+    h+='</div>';
+  }else{
+    const L=D.filter(x=>x.bal>0.004).sort((a,b)=>b.bal-a.bal);
+    h+='<div class="hint" style="margin:0 2px 8px">'+L.length+' مشتری قرضدار، مجموع: '+money(sum(L,x=>x.bal))+' '+cur()+'</div><div class="card flat">';
+    if(!L.length)h+=empty('هیچ مشتری‌ای قرضدار نیست.');
+    h+=L.map(x=>'<div class="row click" data-a="custOpen" data-id="'+x.c.id+'"><div class="grow"><b>'+esc(x.c.name)+'</b><div class="sub">'+(x.last?'آخرین خرید: '+ago(x.last):'')+'</div></div><div class="amt"><b class="neg">'+M$(x.bal)+'</b></div><button class="btn sm" data-a="payNew" data-id="'+x.c.id+'">وصول</button></div>').join('');
+    h+='</div>';
+  }
+  return h;
+}
+
+function expList(){
+  const r=range(UI.expP);
+  return S.expenses.filter(e=>inR(e.date,r)&&(UI.expT==='all'||e.type===UI.expT)).sort((a,b)=>a.date===b.date?(b.ts||0)-(a.ts||0):(a.date<b.date?1:-1));
+}
+function vExpenses(){
+  const r=range(UI.expP),all=S.expenses.filter(e=>inR(e.date,r)),L=expList();
+  const tot={};Object.keys(ET).forEach(k=>tot[k]=sum(all.filter(e=>e.type===k),e=>e.amount));
+  let h='<div class="two">'+Object.keys(ET).map(k=>'<button class="btn" data-a="expNew" data-t="'+k+'"><span class="dot c-'+k+'" style="margin:0"></span>'+ET[k].n+'</button>').join('')+'</div>';
+  h+=chips('expP',UI.expP,PERIODS);
+  h+='<div class="stats">'+Object.keys(ET).map(k=>'<div><span><i class="dot c-'+k+'"></i>'+ET[k].n+'</span><b>'+M$(tot[k])+'</b></div>').join('')+'</div>';
+  const emp={};all.filter(e=>e.type==='emp').forEach(e=>{const k=e.name.trim()||'بدون نام';emp[k]=(emp[k]||0)+e.amount;});
+  const ek=Object.keys(emp).sort((a,b)=>emp[b]-emp[a]);
+  if(ek.length)h+='<h2 class="sec">برداشت کارمندان در این دوره</h2><div class="card flat">'+ek.map(k=>'<div class="row"><div class="grow"><b>'+esc(k)+'</b></div><b>'+M$(emp[k])+'</b></div>').join('')+'</div>';
+  h+='<h2 class="sec">فهرست</h2>'+chips('expT',UI.expT,[['all','همه']].concat(Object.keys(ET).map(k=>[k,ET[k].n])));
+  h+='<div class="card flat">'+(L.length?L.map(e=>'<div class="row"><div class="grow"><b>'+esc(e.name||'—')+'</b><div class="sub">'+fmtDate(e.date)+'، '+ET[e.type].n+(e.desc?'، '+esc(e.desc):'')+'</div></div><div class="amt"><b>'+M$(e.amount)+'</b></div><div class="acts"><button class="icon" data-a="expEdit" data-id="'+e.id+'" aria-label="ویرایش">'+ic('edit',18)+'</button><button class="icon bad" data-a="expDel" data-id="'+e.id+'" aria-label="حذف">'+ic('trash',18)+'</button></div></div>').join(''):empty('در این دوره موردی ثبت نشده است.'))+'</div>';
+  return h;
+}
+
+function finData(r){
+  const ss=S.sales.filter(s=>inR(s.date,r)),ps=S.payments.filter(p=>inR(p.date,r)),es=S.expenses.filter(e=>inR(e.date,r));
+  const qty=sum(ss,s=>s.qty),rev=sum(ss,s=>s.qty*s.price),paid=sum(ss,s=>s.paid),pay=sum(ps,p=>p.amount);
+  const cost=qty*(S.settings.cost||0),gross=rev-cost;
+  const e={};Object.keys(ET).forEach(k=>e[k]=sum(es.filter(x=>x.type===k),x=>x.amount));
+  const net=gross-e.daily-e.tech-e.emp;
+  return{qty,rev,paid,pay,cost,gross,e,net,left:net-e.profit,cash:paid+pay-(e.daily+e.tech+e.emp+e.profit)};
+}
+function buckets(r){
+  const t=today();let f=r[0],to=r[1]>t?t:r[1];
+  if(f<'1900'){const ds=S.sales.map(s=>s.date).concat(S.expenses.map(e=>e.date));f=ds.length?ds.reduce((a,b)=>a<b?a:b):t;}
+  const B=[];
+  if(diff(to,f)<=45){for(let d=f;d<=to;d=addDays(d,1)){const p=d.split('-').map(Number);B.push({f:d,t:d,l:String(shamsi()?toJ(d)[2]:p[2])});}return B;}
+  if(shamsi()){let j=toJ(f),y=j[0],m=j[1];for(;;){const s=fromJ(y,m,1);if(s>to)break;const ny=m===12?y+1:y,nm=m===12?1:m+1;B.push({f:s,t:addDays(fromJ(ny,nm,1),-1),l:MONTHS[m-1]});y=ny;m=nm;}}
+  else{const d=parse(f);let y=d.getFullYear(),m=d.getMonth();for(;;){const s=iso(new Date(y,m,1));if(s>to)break;B.push({f:s,t:iso(new Date(y,m+1,0)),l:GM[m].slice(0,3)});m++;if(m>11){m=0;y++;}}}
+  return B.slice(-12);
+}
+function chart(r){
+  const B=buckets(r);if(B.length<2)return '';
+  B.forEach(b=>{b.s=sum(S.sales.filter(s=>s.date>=b.f&&s.date<=b.t),s=>s.qty*s.price);b.x=sum(S.expenses.filter(e=>e.date>=b.f&&e.date<=b.t&&e.type!=='profit'),e=>e.amount);});
+  const mx=Math.max(1,...B.map(b=>Math.max(b.s,b.x))),W=600,H=170,pb=22,n=B.length,gw=W/n,bw=Math.min(22,gw*.34),step=Math.ceil(n/12);
+  let g='';
+  B.forEach((b,i)=>{const xr=W-(i+1)*gw+gw/2,hs=b.s/mx*(H-pb-10),hx=b.x/mx*(H-pb-10);
+    g+='<rect x="'+(xr-bw-1)+'" y="'+(H-pb-hs)+'" width="'+bw+'" height="'+Math.max(hs,b.s>0?2:0)+'" rx="3" fill="var(--brand)"><title>'+b.l+' فروش: '+money(b.s)+'</title></rect>';
+    g+='<rect x="'+(xr+1)+'" y="'+(H-pb-hx)+'" width="'+bw+'" height="'+Math.max(hx,b.x>0?2:0)+'" rx="3" fill="var(--warn)"><title>'+b.l+' مصارف: '+money(b.x)+'</title></rect>';
+    if(i%step===0)g+='<text x="'+xr+'" y="'+(H-6)+'" text-anchor="middle">'+b.l+'</text>';});
+  return '<h2 class="sec">روند فروش و مصارف</h2><div class="card"><svg class="chart" viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="نمودار فروش و مصارف"><line x1="0" x2="'+W+'" y1="'+(H-pb)+'" y2="'+(H-pb)+'" stroke="var(--line)"/>'+g+'</svg><div class="hint"><span class="dot" style="background:var(--brand)"></span>فروش <span class="dot" style="background:var(--warn);margin-inline-start:12px"></span>مصارف (بدون برداشت مفاد) — بلندترین ستون: '+money(mx)+' '+cur()+'</div></div>';
+}
+function vFinance(){
+  const r=range(UI.finP),d=finData(r);
+  const ln=(l,v,cls,sign)=>'<div class="ln '+(cls||'')+'"><span class="l">'+l+'</span><i></i><span class="'+(v<0?'neg':'')+'">'+(sign||'')+M$(v)+' <small>'+cur()+'</small></span></div>';
+  let h=chips('finP',UI.finP,PERIODS);
+  h+='<div class="hint" style="margin:0 2px 8px">'+(UI.finP==='all'?'از ابتدا تا امروز':fmtDate(r[0])+' تا '+fmtDate(r[1]))+'</div>';
+  h+='<div class="card flat"><div class="stmt">'+ln('فروش ('+money(d.qty)+' بوتل)',d.rev)+(d.cost>0?ln('قیمت تمام‌شده بوتل‌ها',d.cost,'','− ')+ln('سود ناخالص',d.gross,'tot'):'')
+   +ln('مصرف روزانه',d.e.daily,'','− ')+ln('مصرف تخنیکی',d.e.tech,'','− ')+ln('برداشت کارمندان',d.e.emp,'','− ')
+   +ln('سود خالص',d.net,'tot')+ln('برداشت مفاد',d.e.profit,'','− ')+ln('مفاد باقی‌مانده',d.left,'tot final')+'</div></div>';
+  if(!(S.settings.cost>0))h+='<div class="hint" style="margin:-6px 2px 12px">قیمت تمام‌شده هر بوتل (آب، بوتل، تولید) در تنظیمات صفر است؛ پس سود از روی فروش و مصارف ثبت‌شده حساب شده. با وارد کردن آن، سود دقیق‌تر می‌شود.</div>';
+  const D=Object.values(CC),recv=sum(D,x=>Math.max(0,x.bal)),out=sum(D,x=>x.bottles);
+  h+='<h2 class="sec">پول نقد در این دوره</h2><div class="card flat"><div class="stmt">'+ln('دریافت از فروش',d.paid)+ln('وصول قرض‌های قبلی',d.pay)+ln('مجموع مصارف و برداشت‌ها',d.e.daily+d.e.tech+d.e.emp+d.e.profit,'','− ')+ln('تغییر موجودی نقد',d.cash,'tot final')+'</div></div>';
+  h+='<div class="stats" style="margin-bottom:14px"><div><span>قرض مشتریان (تا امروز)</span><b>'+M$(recv)+'</b></div><div><span>بوتل نزد مشتریان</span><b>'+M$(out)+'</b></div></div>';
+  const tot=d.e.daily+d.e.tech+d.e.emp+d.e.profit;
+  if(tot>0){h+='<h2 class="sec">تفکیک مصارف و برداشت‌ها</h2><div class="card"><div class="stack">'+Object.keys(ET).map(k=>'<i class="c-'+k+'" style="width:'+d.e[k]/tot*100+'%"></i>').join('')+'</div>'+Object.keys(ET).map(k=>'<div class="sum" style="margin:6px 0 0;display:flex;justify-content:space-between"><span><i class="dot c-'+k+'"></i>'+ET[k].n+'</span><span>'+money(d.e[k])+' <small>('+Math.round(d.e[k]/tot*100)+'٪)</small></span></div>').join('')+'</div>';}
+  h+=chart(r);
+  return h;
+}
+
+function vSettings(){
+  const s=S.settings;
+  const inp=(k,l,o)=>{o=o||{};return '<label>'+l+'</label><input data-s="'+k+'" '+(o.n?'data-n="1" inputmode="decimal" ':'')+'value="'+esc(s[k])+'"'+(o.ph?' placeholder="'+o.ph+'"':'')+'>';};
+  const sel=(k,l,opts)=>'<label>'+l+'</label><select data-s="'+k+'">'+opts.map(o=>'<option value="'+o[0]+'"'+(String(s[k])===String(o[0])?' selected':'')+'>'+o[1]+'</option>').join('')+'</select>';
+  let h='<div class="card"><div class="logo-lg">'+logo(72)+'<h1 style="font-size:1.3rem">'+esc(s.company)+'</h1><div class="sub">مدیرعامل: '+esc(s.ceo)+'</div><div class="sub">'+esc(s.group)+'</div></div></div>';
+  h+='<div class="card"><h2 style="font-size:1.05rem">اطلاعات شرکت</h2>'+inp('company','نام شرکت')+inp('ceo','مدیرعامل')+inp('group','گروپ شرکت‌ها')+inp('phone','شماره تماس شرکت')+inp('address','آدرس')+'</div>';
+  h+='<div class="card"><h2 style="font-size:1.05rem">تنظیمات کار</h2><div class="grid2"><div>'+inp('currency','واحد پول')+'</div><div>'+inp('cc','کد کشور برای واتساپ')+'</div><div>'+inp('price','قیمت یک بوتل ۲۰ لیتری',{n:1})+'</div><div>'+inp('cost','قیمت تمام‌شده هر بوتل',{n:1})+'</div><div>'+inp('days','یادآوری پیش‌فرض (روز)',{n:1})+'</div><div>'+inp('inactive','مشتری غیرفعال بعد از (روز)',{n:1})+'</div></div>'
+    +sel('cal','تقویم',[['shamsi','شمسی (هجری خورشیدی)'],['miladi','میلادی']])+sel('theme','حالت نمایش',[['auto','خودکار'],['light','روشن'],['dark','تاریک']])+'</div>';
+  h+='<div class="card"><h2 style="font-size:1.05rem">بکاپ و انتقال بین دستگاه‌ها</h2><p class="sub" style="margin:6px 0 12px">اطلاعات روی همین دستگاه ذخیره می‌شود. برای انتقال به گوشی یا کامپیوتر دیگر، فایل بکاپ بگیرید و در دستگاه دیگر «وارد کردن» را بزنید. در حالت «ادغام»، اطلاعات دو دستگاه کنار هم جمع می‌شود.</p>'
+    +'<div class="two"><button class="btn p" data-a="exportJSON">'+ic('down',16)+'گرفتن بکاپ</button><button class="btn" data-a="importFile">'+ic('up',16)+'وارد کردن فایل</button></div>'
+    +'<button class="btn wide" data-a="importPaste" style="margin-bottom:12px">وارد کردن از متن بکاپ</button>'
+    +'<div class="sub">خروجی اکسل (CSV):</div><div class="chips"><button data-a="csv" data-k="customers">مشتریان</button><button data-a="csv" data-k="sales">فروش‌ها</button><button data-a="csv" data-k="expenses">مصارف</button></div>'
+    +'<div class="hint" style="margin-top:12px">'+(s.lastBackup?'آخرین بکاپ: '+fmtDate(s.lastBackup):'هنوز بکاپ گرفته نشده')+'</div></div>';
+  h+='<div class="card"><button class="btn d wide" data-a="wipe">پاک کردن همه اطلاعات این دستگاه</button></div>';
+  return h;
+}
+
+/* ---------- customer forms ---------- */
+function custOptions(selected,q){
+  q=(q||'').trim().toLowerCase();
+  const L=S.customers.filter(c=>!q||(c.name+' '+c.phone).toLowerCase().indexOf(q)>=0).sort(byName);
+  return '<option value="">— انتخاب مشتری —</option>'+L.map(c=>'<option value="'+c.id+'"'+(c.id===selected?' selected':'')+'>'+esc(c.name)+(c.phone?' — '+esc(c.phone):'')+'</option>').join('');
+}
+function saleForm(id,cid,date){
+  const s=id?S.sales.find(x=>x.id===id):null;
+  if(!S.customers.length){openModal(mhead('فروش جدید')+'<p style="margin:12px 0">ابتدا یک مشتری ثبت کنید.</p><button class="btn p wide" data-a="custNew" data-then="sale">مشتری جدید</button>');return;}
+  const sel=s?s.cid:(cid||'');
+  openModal(mhead(s?'ویرایش فروش':'فروش جدید')+'<div id="sf" data-id="'+(s?s.id:'')+'">'
+   +'<label>مشتری</label><input id="sf-q" placeholder="جستجوی نام یا شماره" autocomplete="off"><select id="sf-c" style="margin-top:6px">'+custOptions(sel)+'</select><button class="link" data-a="custNew" data-then="sale">+ مشتری جدید</button><div id="sf-info" class="hint"></div>'
+   +'<label>تاریخ</label>'+dateField('sf-date',s?s.date:(date||today()))
+   +'<div class="grid2"><div><label>تعداد بوتل تحویل</label><div class="step"><button type="button" data-a="step" data-t="sf-qty" data-d="-1">−</button><input id="sf-qty" inputmode="numeric" value="'+(s?s.qty:'')+'"><button type="button" data-a="step" data-t="sf-qty" data-d="1">+</button></div></div><div><label>بوتل خالی برگشتی</label><div class="step"><button type="button" data-a="step" data-t="sf-ret" data-d="-1">−</button><input id="sf-ret" inputmode="numeric" value="'+(s?s.ret:0)+'"><button type="button" data-a="step" data-t="sf-ret" data-d="1">+</button></div></div></div>'
+   +'<div class="grid2"><div><label>قیمت هر بوتل</label><input id="sf-price" inputmode="decimal" value="'+(s?s.price:(S.settings.price||''))+'"></div><div><label>مبلغ پرداخت‌شده</label><input id="sf-paid" inputmode="decimal" value="'+(s?s.paid:'')+'" placeholder="0"></div></div>'
+   +'<div class="chips"><button type="button" data-a="payFull">پرداخت کامل</button><button type="button" data-a="payNone">بدون پرداخت (قرض)</button></div>'
+   +'<label>یادآوری بعد از چند روز؟</label><input id="sf-days" inputmode="numeric" value="'+(s?s.days:(S.settings.days||''))+'"><div class="chips">'+[2,3,4,5,7,10,15].map(d=>'<button type="button" data-a="setDays" data-v="'+d+'">'+d+' روز</button>').join('')+'<button type="button" data-a="setDays" data-v="0">بدون یادآوری</button></div>'
+   +'<label>یادداشت</label><input id="sf-note" value="'+esc(s?s.note:'')+'">'
+   +'<div class="sum" id="sf-sum"></div>'
+   +'<div class="two" style="margin-top:14px"><button class="btn" data-a="mclose">انصراف</button><button class="btn p" data-a="sfSave">ذخیره</button></div></div>');
+  if(!s&&sel)sfPick(sel);else sfUpdate();
+}
+function sfFilter(){const c=$('#sf-c'),q=$('#sf-q').value,cur=c.value;c.innerHTML=custOptions(cur,q);if(q.trim()){const o=Array.from(c.options).filter(x=>x.value);if(o.length===1){c.value=o[0].value;sfPick(o[0].value);return;}}sfUpdate();}
+function sfPick(cid){
+  const x=CC[cid];if(!x){sfUpdate();return;}
+  $('#sf-c').value=cid;
+  const c=x.c;
+  $('#sf-price').value=c.price||S.settings.price||'';
+  $('#sf-days').value=c.days||x.days||S.settings.days||'';
+  if(!$('#sf-qty').value&&x.lastQty)$('#sf-qty').value=x.lastQty;
+  sfUpdate();
+}
+function sfUpdate(){
+  const box=$('#sf');if(!box)return;
+  const id=box.dataset.id,old=id?S.sales.find(x=>x.id===id):null,cid=$('#sf-c').value,x=CC[cid];
+  const qty=num($('#sf-qty').value),ret=num($('#sf-ret').value),price=num($('#sf-price').value),paid=num($('#sf-paid').value),days=num($('#sf-days').value),date=getDate('sf-date');
+  const total=qty*price,rem=total-paid;
+  let prev=0,bott=0;
+  if(x){prev=x.bal;bott=x.bottles;if(old&&old.cid===cid){prev-=old.qty*old.price-old.paid;bott-=old.qty-(old.ret||0);}}
+  $('#sf-info').innerHTML=x?'در حال حاضر نزد این مشتری: <b>'+money(bott)+'</b> بوتل'+(prev>0.004?'، قرض قبلی: <b class="neg">'+money(prev)+'</b>':'')+'.':'';
+  $('#sf-sum').innerHTML='<div><span>مبلغ این فروش</span><b>'+M$(total)+'</b></div><div><span>باقی این فروش</span><b class="'+(rem>0.004?'neg':'pos')+'">'+M$(rem)+'</b></div>'
+    +(x?'<div class="big"><span>مجموع باقی مشتری</span><span class="'+(prev+rem>0.004?'neg':'pos')+'">'+M$(prev+rem)+'</span></div><div><span>بوتل نزد مشتری بعد از این</span><b>'+M$(bott+qty-ret)+'</b></div>':'')
+    +'<div><span>یادآوری بعدی</span><b>'+(days>0&&qty>0?fmtDate(addDays(date,days)):'—')+'</b></div>';
+  document.querySelectorAll('[data-a="setDays"]').forEach(b=>b.classList.toggle('on',+b.dataset.v===days&&$('#sf-days').value!==''));
+}
+function sfSave(){
+  const box=$('#sf'),id=box.dataset.id,cid=$('#sf-c').value;
+  const qty=Math.max(0,num($('#sf-qty').value)),ret=Math.max(0,num($('#sf-ret').value)),price=Math.max(0,num($('#sf-price').value)),paid=Math.max(0,num($('#sf-paid').value)),days=Math.max(0,Math.round(num($('#sf-days').value))),date=getDate('sf-date');
+  if(!cid){toast('مشتری را انتخاب کنید');return;}
+  if(qty===0&&ret===0){toast('تعداد بوتل را وارد کنید');return;}
+  if(qty>0&&price<=0){toast('قیمت هر بوتل را وارد کنید');return;}
+  const rec={cid:cid,date:date,qty:qty,ret:ret,price:price,paid:paid,days:days,note:$('#sf-note').value.trim()};
+  if(id){const s=S.sales.find(x=>x.id===id);Object.assign(s,rec);}
+  else{S.sales.push(Object.assign({id:uid(),ts:Date.now()},rec));}
+  const c=S.customers.find(x=>x.id===cid);
+  if(c&&qty>0){c.snooze='';c.mute=false;}
+  save();UI.saleDate=date;closeModal();toast('فروش ذخیره شد');render();
+}
+function payForm(cid,id,date){
+  const p=id?S.payments.find(x=>x.id===id):null;
+  if(!S.customers.length){toast('ابتدا مشتری ثبت کنید');return;}
+  const sel=p?p.cid:(cid||'');
+  openModal(mhead(p?'ویرایش وصول':'وصول قرض')+'<div id="pf" data-id="'+(p?p.id:'')+'"><label>مشتری</label><select id="pf-c">'+custOptions(sel)+'</select><div id="pf-info" class="hint"></div>'
+   +'<label>تاریخ</label>'+dateField('pf-date',p?p.date:(date||today()))+'<label>مبلغ دریافتی</label><input id="pf-amt" inputmode="decimal" value="'+(p?p.amount:'')+'"><div class="chips"><button type="button" data-a="payAll">تمام قرض</button></div>'
+   +'<label>یادداشت</label><input id="pf-note" value="'+esc(p?p.note:'')+'"><div class="two" style="margin-top:14px"><button class="btn" data-a="mclose">انصراف</button><button class="btn p" data-a="pfSave">ذخیره</button></div></div>');
+  pfUpdate();
+}
+function pfUpdate(){
+  const cid=$('#pf-c').value,x=CC[cid];if(!x){$('#pf-info').textContent='';return;}
+  const id=$('#pf').dataset.id,old=id?S.payments.find(p=>p.id===id):null;
+  let bal=x.bal;if(old&&old.cid===cid)bal+=old.amount;
+  const a=num($('#pf-amt').value);
+  $('#pf-info').innerHTML='قرض فعلی: <b class="'+(bal>0.004?'neg':'pos')+'">'+money(bal)+'</b> '+cur()+(a>0?' — بعد از این پرداخت: <b>'+money(bal-a)+'</b>':'');
+}
+function pfSave(){
+  const id=$('#pf').dataset.id,cid=$('#pf-c').value,amount=num($('#pf-amt').value);
+  if(!cid){toast('مشتری را انتخاب کنید');return;}
+  if(amount<=0){toast('مبلغ را وارد کنید');return;}
+  const rec={cid:cid,date:getDate('pf-date'),amount:amount,note:$('#pf-note').value.trim()};
+  if(id)Object.assign(S.payments.find(p=>p.id===id),rec);else S.payments.push(Object.assign({id:uid(),ts:Date.now()},rec));
+  save();UI.saleDate=rec.date;closeModal();toast('پرداخت ثبت شد');render();
+}
+let custThen=null;
+function custForm(id,then){
+  const c=id?S.customers.find(x=>x.id===id):null;custThen=then||null;
+  openModal(mhead(c?'ویرایش مشتری':'مشتری جدید')+'<div id="cf" data-id="'+(c?c.id:'')+'"><label>نام *</label><input id="cf-name" value="'+esc(c?c.name:'')+'">'
+   +'<div class="grid2"><div><label>شماره تماس</label><input id="cf-phone" inputmode="tel" value="'+esc(c?c.phone:'')+'"></div><div><label>نوع مشتری</label><select id="cf-type">'+Object.keys(TYPES).map(k=>'<option value="'+k+'"'+((c?c.type:'home')===k?' selected':'')+'>'+TYPES[k]+'</option>').join('')+'</select></div></div>'
+   +'<label>آدرس</label><textarea id="cf-addr">'+esc(c?c.address:'')+'</textarea>'
+   +'<div class="grid2"><div><label>قیمت مخصوص هر بوتل</label><input id="cf-price" inputmode="decimal" value="'+(c&&c.price!==null?c.price:'')+'" placeholder="پیش‌فرض: '+money(S.settings.price)+'"></div><div><label>یادآوری (روز)</label><input id="cf-days" inputmode="numeric" value="'+(c&&c.days!==null?c.days:'')+'" placeholder="پیش‌فرض: '+S.settings.days+'"></div>'
+   +'<div><label>بوتل نزد مشتری (از قبل)</label><input id="cf-bot" inputmode="numeric" value="'+(c?c.openBottles:0)+'"></div><div><label>قرض قبلی (از قبل)</label><input id="cf-debt" inputmode="decimal" value="'+(c?c.openDebt:0)+'"></div></div>'
+   +'<label>یادداشت</label><input id="cf-note" value="'+esc(c?c.note:'')+'">'
+   +'<div class="two" style="margin-top:14px"><button class="btn" data-a="mclose">انصراف</button><button class="btn p" data-a="cfSave">ذخیره</button></div></div>');
+}
+function cfSave(){
+  const id=$('#cf').dataset.id,name=$('#cf-name').value.trim();
+  if(!name){toast('نام مشتری را وارد کنید');return;}
+  const pr=$('#cf-price').value.trim(),dy=$('#cf-days').value.trim();
+  const rec={name:name,phone:$('#cf-phone').value.trim(),address:$('#cf-addr').value.trim(),type:$('#cf-type').value,price:pr===''?null:num(pr),days:dy===''?null:Math.round(num(dy)),openBottles:num($('#cf-bot').value),openDebt:num($('#cf-debt').value),note:$('#cf-note').value.trim()};
+  let nid=id;
+  if(id)Object.assign(S.customers.find(c=>c.id===id),rec);
+  else{nid=uid();S.customers.push(Object.assign({id:nid,created:today(),snooze:'',mute:false},rec));}
+  save();closeModal();toast('مشتری ذخیره شد');render();
+  if(custThen==='sale'&&!id){custThen=null;saleForm(null,nid,UI.saleDate);}
+}
+function ledger(cid){
+  const x=CC[cid],R=[];
+  if(x.c.openDebt||x.c.openBottles)R.push({d:'',ts:0,txt:'مانده قبل از شروع',delta:x.c.openDebt||0,b:x.c.openBottles||0});
+  S.sales.filter(s=>s.cid===cid).forEach(s=>R.push({d:s.date,ts:s.ts||0,txt:(s.qty>0?money(s.qty)+' بوتل × '+money(s.price)+' = '+money(s.qty*s.price):'برگشت بوتل خالی')+(s.ret&&s.qty>0?'، '+money(s.ret)+' خالی برگشت':'')+(s.paid?'، پرداخت '+money(s.paid):''),delta:s.qty*s.price-s.paid,b:s.qty-s.ret}));
+  S.payments.filter(p=>p.cid===cid).forEach(p=>R.push({d:p.date,ts:p.ts||0,txt:'پرداخت قرض'+(p.note?' ('+p.note+')':''),delta:-p.amount,b:0}));
+  R.sort((a,b)=>a.d===b.d?a.ts-b.ts:(a.d<b.d?-1:1));
+  let run=0,bt=0;R.forEach(r=>{run+=r.delta;bt+=r.b;r.run=run;r.bt=bt;});
+  return R.reverse();
+}
+function custOpen(id){
+  const x=CC[id];if(!x)return;const c=x.c,L=ledger(id);
+  openModal(mhead(esc(c.name))+'<div class="sub">'+TYPES[c.type]+(c.phone?'، <span class="ltr">'+esc(c.phone)+'</span>':'')+'</div>'+(c.address?'<div class="sub">'+esc(c.address)+'</div>':'')+(c.note?'<div class="sub">'+esc(c.note)+'</div>':'')
+   +'<div class="stats" style="margin:12px 0"><div><span>بوتل نزد مشتری</span><b>'+M$(x.bottles)+'</b></div><div><span>حساب</span><b class="'+(x.bal>0.004?'neg':'pos')+'">'+M$(x.bal)+'</b> <small>'+(x.bal>0.004?'باقی':x.bal<-0.004?'پیش‌پرداخت':'صاف')+'</small></div><div><span>کل خرید</span><b>'+M$(x.qty)+'</b> <small>بوتل</small></div><div><span>آخرین خرید</span><b style="font-size:1rem">'+(x.last?ago(x.last):'—')+'</b></div></div>'
+   +(x.due?'<div class="hint" style="margin-bottom:10px">یادآوری بعدی: '+fmtDate(x.due)+'</div>':'')
+   +'<div class="act" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px"><button class="btn p sm" data-a="saleNew" data-id="'+id+'">فروش</button><button class="btn sm" data-a="payNew" data-id="'+id+'">وصول قرض</button><button class="btn sm" data-a="custEdit" data-id="'+id+'">ویرایش</button>'+(c.phone?'<a class="btn sm" href="'+telHref(c.phone)+'">تماس</a>':'')+'<button class="btn sm d" data-a="custDel" data-id="'+id+'">حذف</button></div>'
+   +'<h2 class="sec" style="margin-top:6px">صورت حساب</h2><div class="card flat" style="margin:0">'+(L.length?L.map(r=>'<div class="row"><div class="grow"><b style="font-weight:500">'+esc(r.txt)+'</b><div class="sub">'+(r.d?fmtDate(r.d):'')+'</div></div><div class="amt"><b class="'+(r.delta>0.004?'neg':r.delta<-0.004?'pos':'')+'">'+(r.delta>0?'+':'')+M$(r.delta)+'</b><div class="sub">مانده '+money(r.run)+'</div></div></div>').join(''):empty('هنوز معامله‌ای ثبت نشده.'))+'</div>');
+}
+function snoozeForm(id){
+  openModal(mhead('یادآوری بعداً')+'<p class="sub" style="margin:6px 0 12px">'+esc(custName(id))+' چند روز دیگر دوباره در فهرست بیاید؟</p><div class="chips">'+[1,2,3,5,7].map(d=>'<button data-a="snoozeSet" data-id="'+id+'" data-v="'+d+'">'+d+' روز</button>').join('')+'</div><button class="btn wide" style="margin-top:14px" data-a="snoozeSet" data-id="'+id+'" data-v="mute">حذف از یادآوری تا فروش بعدی</button>');
+}
+function expForm(id,type){
+  const e=id?S.expenses.find(x=>x.id===id):null,tp=e?e.type:(type||'daily');
+  openModal(mhead(e?'ویرایش':'ثبت مصرف / برداشت')+'<div id="ef" data-id="'+(e?e.id:'')+'"><input type="hidden" id="ef-type" value="'+tp+'"><div class="chips" id="ef-types">'+Object.keys(ET).map(k=>'<button type="button" data-a="etype" data-v="'+k+'" class="'+(k===tp?'on':'')+'">'+ET[k].n+'</button>').join('')+'</div>'
+   +'<label>تاریخ</label>'+dateField('ef-date',e?e.date:today())+'<label id="ef-nl"></label><input id="ef-name" list="ef-dl" value="'+esc(e?e.name:'')+'" autocomplete="off"><datalist id="ef-dl"></datalist>'
+   +'<label>شرح (اختیاری)</label><input id="ef-desc" value="'+esc(e?e.desc:'')+'"><label>مبلغ</label><input id="ef-amt" inputmode="decimal" value="'+(e?e.amount:'')+'">'
+   +'<div class="two" style="margin-top:14px"><button class="btn" data-a="mclose">انصراف</button><button class="btn p" data-a="efSave">ذخیره</button></div></div>');
+  efType(tp);
+}
+function efType(tp){
+  $('#ef-type').value=tp;
+  document.querySelectorAll('#ef-types button').forEach(b=>b.classList.toggle('on',b.dataset.v===tp));
+  $('#ef-nl').textContent=ET[tp].lab;$('#ef-name').placeholder=ET[tp].ph;
+  const names=Array.from(new Set(S.expenses.filter(e=>e.type===tp&&e.name).map(e=>e.name)));
+  $('#ef-dl').innerHTML=names.map(n=>'<option value="'+esc(n)+'">').join('');
+}
+function efSave(){
+  const id=$('#ef').dataset.id,tp=$('#ef-type').value,name=$('#ef-name').value.trim(),amount=num($('#ef-amt').value);
+  if(!name){toast(tp==='emp'||tp==='profit'?'نام را وارد کنید':'مورد مصرف را وارد کنید');return;}
+  if(amount<=0){toast('مبلغ را وارد کنید');return;}
+  const rec={type:tp,date:getDate('ef-date'),name:name,desc:$('#ef-desc').value.trim(),amount:amount};
+  if(id)Object.assign(S.expenses.find(e=>e.id===id),rec);else S.expenses.push(Object.assign({id:uid(),ts:Date.now()},rec));
+  save();closeModal();toast('ثبت شد');render();
+}
+function receipt(id){
+  const s=S.sales.find(x=>x.id===id);if(!s)return;
+  const total=s.qty*s.price,rem=total-s.paid,x=CC[s.cid],c=S.settings;
+  const txt=c.company+'\nرسید فروش — '+fmtDate(s.date)+'\nمشتری: '+custName(s.cid)+'\n'+(s.qty>0?s.qty+' بوتل × '+money(s.price)+' = '+money(total)+' '+c.currency:'')+'\nپرداخت: '+money(s.paid)+'\nباقی این فروش: '+money(rem)+'\n'+(x?'مجموع باقی حساب: '+money(x.bal)+' '+c.currency+'\n':'')+c.group;
+  const L=(a,b)=>'<div class="rl"><span>'+a+'</span><b>'+b+'</b></div>';
+  openModal(mhead('رسید فروش')+'<div id="receipt" class="receipt"><div class="rh">'+logo(46)+'<h2 style="font-size:1.1rem">'+esc(c.company)+'</h2><div class="sub">'+esc(c.group)+'</div>'+(c.phone?'<div class="sub">'+esc(c.phone)+'</div>':'')+'</div>'
+   +L('تاریخ',fmtDate(s.date))+L('مشتری',esc(custName(s.cid)))+(s.qty>0?L('تعداد',money(s.qty)+' بوتل ۲۰ لیتری')+L('قیمت هر بوتل',money(s.price)):'')+(s.ret?L('بوتل خالی برگشتی',money(s.ret)):'')
+   +'<div class="rs">'+L('جمع مبلغ',money(total)+' '+esc(c.currency))+L('پرداخت',money(s.paid))+L('باقی این فروش',money(rem))+(x?L('مجموع باقی حساب',money(x.bal)+' '+esc(c.currency))+L('بوتل نزد مشتری',money(x.bottles)):'')+'</div><div class="sub" style="text-align:center;margin-top:10px">مدیرعامل: '+esc(c.ceo)+'</div></div>'
+   +'<div class="two" style="margin-top:14px"><button class="btn" data-a="doPrint">'+ic('print',16)+'چاپ</button>'+(x&&x.c.phone?'<a class="btn" target="_blank" rel="noopener" href="'+waHref(x.c.phone,txt)+'">'+ic('chat',16)+'ارسال واتساپ</a>':'<button class="btn" data-a="mclose">بستن</button>')+'</div>');
+}
+
+/* ---------- export / import ---------- */
+async function saveFile(name,data){
+  try{const dl=window.claude&&window.claude.use?await window.claude.use('downloads'):null;if(dl){await dl.save({filename:name,data:data});return true;}}
+  catch(e){if(e&&e.code==='declined')return false;}
+  if(!window.claude){
+    try{
+      if(/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)){
+        const f=new File([data],name,{type:/\.csv$/.test(name)?'text/csv':'application/json'});
+        if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return true;}
+      }
+    }catch(e){if(e&&e.name==='AbortError')return false;}
+  }
+  if(!window.claude){try{const b=new Blob([data],{type:'application/octet-stream'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);return true;}catch(e){}}
+  openModal(mhead('متن فایل')+'<p class="sub" style="margin:8px 0">ذخیره مستقیم فایل در این حالت ممکن نیست. متن زیر را کاپی کنید و در یک فایل (مثلاً «'+esc(name)+'») نگه دارید.</p><textarea id="txtout" readonly style="direction:ltr;min-height:200px">'+esc(data)+'</textarea><button class="btn p wide" data-a="selTxt" style="margin-top:10px">انتخاب همه متن</button>');
+  return false;
+}
+async function exportJSON(){
+  const ok=await saveFile('elham-water-backup-'+today()+'.json',JSON.stringify(S));
+  if(ok){S.settings.lastBackup=today();save();render();toast('بکاپ ذخیره شد');}
+}
+const csvCell=v=>'"'+str(v).replace(/"/g,'""')+'"';
+function csv(kind){
+  let rows=[];
+  if(kind==='customers'){rows.push(['نام','تلفن','آدرس','نوع','بوتل نزد مشتری','حساب (باقی)','آخرین خرید','کل بوتل خریداری']);Object.values(CC).sort((a,b)=>byName(a.c,b.c)).forEach(x=>rows.push([x.c.name,x.c.phone,x.c.address,TYPES[x.c.type]||'',x.bottles,x.bal,x.last?fmtDate(x.last):'',x.qty]));}
+  else if(kind==='sales'){rows.push(['تاریخ','مشتری','تعداد','خالی برگشتی','قیمت','مجموع','پرداخت','باقی','یادداشت']);S.sales.slice().sort((a,b)=>a.date<b.date?-1:1).forEach(s=>rows.push([fmtDate(s.date),custName(s.cid),s.qty,s.ret,s.price,s.qty*s.price,s.paid,s.qty*s.price-s.paid,s.note]));S.payments.forEach(p=>rows.push([fmtDate(p.date),custName(p.cid),'','','','',p.amount,-p.amount,'وصول قرض '+p.note]));}
+  else{rows.push(['تاریخ','نوع','نام / مورد','شرح','مبلغ']);S.expenses.slice().sort((a,b)=>a.date<b.date?-1:1).forEach(e=>rows.push([fmtDate(e.date),ET[e.type].n,e.name,e.desc,e.amount]));}
+  saveFile('elham-'+kind+'-'+today()+'.csv','\uFEFF'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n'));
+}
+let pendingImport=null;
+function handleImport(text){
+  let o;try{o=JSON.parse(text);}catch(e){toast('متن یا فایل بکاپ معتبر نیست');return;}
+  if(!o||typeof o!=='object'||!Array.isArray(o.customers)){toast('این فایل بکاپ این برنامه نیست');return;}
+  pendingImport=normalize(o);const n=pendingImport;
+  openModal(mhead('وارد کردن بکاپ')+'<p style="margin:10px 0">در این بکاپ: <b>'+n.customers.length+'</b> مشتری، <b>'+n.sales.length+'</b> فروش، <b>'+n.payments.length+'</b> وصول، <b>'+n.expenses.length+'</b> مصرف.</p><p class="sub">«ادغام» فقط موارد جدید را به اطلاعات این دستگاه اضافه می‌کند. «جایگزین» همه اطلاعات این دستگاه را پاک و با بکاپ عوض می‌کند.</p><div class="two" style="margin-top:14px"><button class="btn p" data-a="impMerge">ادغام</button><button class="btn d" data-a="impReplace">جایگزین</button></div>');
+}
+function mergeIn(o){['customers','sales','payments','expenses'].forEach(k=>{const have=new Set(S[k].map(x=>x.id));o[k].forEach(x=>{if(!have.has(x.id))S[k].push(x);});});}
+
+/* ---------- actions ---------- */
+const A={
+  go(d){UI.view=d.v;window.scrollTo(0,0);render(false);},
+  set(d){const v=d.v;UI[d.k]=(d.k==='inact')?+v:v;render();},
+  mclose(){closeModal();},
+  confirmYes(){const f=confirmFn;confirmFn=null;closeModal();if(f)f();},
+  saleNew(d){closeModal();saleForm(null,d.id,d.date||(UI.view==='sales'?UI.saleDate:today()));},
+  saleEdit(d){saleForm(d.id);},
+  saleDel(d){confirmBox('این فروش حذف شود؟ حساب و تعداد بوتل مشتری دوباره محاسبه می‌شود.','حذف',()=>{S.sales=S.sales.filter(s=>s.id!==d.id);save();render();toast('حذف شد');});},
+  receipt(d){receipt(d.id);},
+  doPrint(){try{window.print();}catch(e){toast('چاپ در این حالت ممکن نیست');}},
+  payNew(d){closeModal();payForm(d.id,null,d.date||(UI.view==='sales'?UI.saleDate:today()));},
+  payEdit(d){payForm(null,d.id);},
+  payDel(d){confirmBox('این پرداخت حذف شود؟','حذف',()=>{S.payments=S.payments.filter(p=>p.id!==d.id);save();render();toast('حذف شد');});},
+  custNew(d){closeModal();custForm(null,d.then);},
+  custEdit(d){closeModal();custForm(d.id);},
+  custOpen(d){custOpen(d.id);},
+  custDel(d){const n=S.sales.filter(s=>s.cid===d.id).length;confirmBox('مشتری «'+custName(d.id)+'» با '+n+' فروش و همه پرداخت‌هایش برای همیشه حذف شود؟','حذف',()=>{S.customers=S.customers.filter(c=>c.id!==d.id);S.sales=S.sales.filter(s=>s.cid!==d.id);S.payments=S.payments.filter(p=>p.cid!==d.id);save();render();toast('حذف شد');});},
+  snooze(d){snoozeForm(d.id);},
+  snoozeSet(d){const c=S.customers.find(x=>x.id===d.id);if(d.v==='mute'){c.mute=true;}else{c.snooze=addDays(today(),+d.v);}save();closeModal();render();toast('انجام شد');},
+  dayMove(d){UI.saleDate=addDays(UI.saleDate,+d.d);render();},
+  dayToday(){UI.saleDate=today();render();},
+  dayPick(){openModal(mhead('انتخاب تاریخ')+dateField('dp-date',UI.saleDate)+'<button class="btn p wide" style="margin-top:14px" data-a="dayGo">نمایش</button>');},
+  dayGo(){UI.saleDate=getDate('dp-date');closeModal();render();},
+  step(d){const el=$('#'+d.t);el.value=Math.max(0,num(el.value)+(+d.d));sfUpdate();},
+  payFull(){const t=num($('#sf-qty').value)*num($('#sf-price').value);$('#sf-paid').value=t||'';sfUpdate();},
+  payNone(){$('#sf-paid').value='0';sfUpdate();},
+  payAll(){const x=CC[$('#pf-c').value];if(x){const id=$('#pf').dataset.id,old=id?S.payments.find(p=>p.id===id):null;$('#pf-amt').value=Math.max(0,x.bal+(old&&old.cid===x.c.id?old.amount:0));pfUpdate();}},
+  setDays(d){$('#sf-days').value=d.v;sfUpdate();},
+  sfSave,pfSave,cfSave,efSave,
+  expNew(d){expForm(null,d.t);},expEdit(d){expForm(d.id);},
+  expDel(d){confirmBox('این مورد حذف شود؟','حذف',()=>{S.expenses=S.expenses.filter(e=>e.id!==d.id);save();render();toast('حذف شد');});},
+  etype(d){efType(d.v);},
+  exportJSON,csv(d){csv(d.k);},
+  selTxt(){const t=$('#txtout');if(t){t.focus();t.select();}},
+  importFile(){$('#impfile').value='';$('#impfile').click();},
+  importPaste(){openModal(mhead('وارد کردن از متن')+'<textarea id="pastein" placeholder="متن بکاپ را اینجا بچسبانید" style="direction:ltr;min-height:160px"></textarea><button class="btn p wide" style="margin-top:10px" data-a="pasteGo">ادامه</button>');},
+  pasteGo(){const v=$('#pastein').value;closeModal();handleImport(v);},
+  impMerge(){mergeIn(pendingImport);pendingImport=null;save();closeModal();render();toast('ادغام شد');},
+  impReplace(){const n=pendingImport;pendingImport=null;confirmBox('همه اطلاعات فعلی این دستگاه پاک و با بکاپ جایگزین شود؟','جایگزین کن',()=>{S=n;save();render();toast('بکاپ بازیابی شد');});},
+  wipe(){confirmBox('همه مشتریان، فروش‌ها و مصارف این دستگاه برای همیشه پاک شود؟ پیش از این کار حتماً بکاپ بگیرید.','پاک کن',()=>{const st=S.settings;S=normalize({settings:st});save();UI.view='home';render();toast('پاک شد');});}
+};
+document.addEventListener('click',e=>{
+  if(e.target.classList&&e.target.classList.contains('ov')){closeModal();return;}
+  const t=e.target.closest('[data-a]');if(!t)return;
+  const f=A[t.dataset.a];if(f){e.preventDefault();f(t.dataset,t);}
+});
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.id==='sf-q')sfFilter();
+  else if(t.closest&&t.closest('#sf'))sfUpdate();
+  else if(t.closest&&t.closest('#pf'))pfUpdate();
+  else if(t.id==='cq'){UI.q=t.value;$('#clist').innerHTML=custList();}
+});
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.id==='sf-c'){sfPick(t.value);return;}
+  if(t.closest&&t.closest('#sf')){sfUpdate();return;}
+  if(t.closest&&t.closest('#pf')){pfUpdate();return;}
+  if(t.id==='impfile'){const f=t.files&&t.files[0];if(!f)return;const r=new FileReader();r.onload=()=>handleImport(String(r.result));r.onerror=()=>toast('خواندن فایل ممکن نشد');r.readAsText(f);return;}
+  if(t.dataset&&t.dataset.s){const k=t.dataset.s;let v=t.value;if(t.dataset.n)v=num(v);S.settings[k]=v;save();if(['cal','theme','company','group','ceo','currency'].indexOf(k)>=0)render();else toast('ذخیره شد');}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+S=load();UI.inact=S.settings.inactive||30;
+render(false);
+})();
+</script>
+<script>
+if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+</script>
+</body>
+</html>
